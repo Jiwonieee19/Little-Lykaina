@@ -1,0 +1,10 @@
+Ill use a webdev-like architecture in these one to practice these type of architecture
+
+Config -	Game settings, controls, constants
+Controllers -	Input handling, menu actions
+Routes -	Scene/State Manager
+Services -	Asset loading, audio, save system
+Views - 	Rendering/UI
+Models -	Player, Enemy, Level data
+
+though gamedev have diff architecture, ill use that later in gamedev environment
