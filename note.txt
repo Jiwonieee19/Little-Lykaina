@@ -8,3 +8,6 @@ Views - 	Rendering/UI
 Models -	Player, Enemy, Level data
 
 though gamedev have diff architecture, ill use that later in gamedev environment
+
+  Session   Project overview and next steps
+  Continue  opencode -s ses_0517d9957ffeayf0MstxSIPAt3
