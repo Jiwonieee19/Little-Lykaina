@@ -1,2 +1,5 @@
 ONE SOURCE OF TRUTH ni and config, variables that will be use later sa game logic
 so sa game logics, no hardcoded shii instead variable tanan para easy to change
+
+Session   Arrange index.css properly
+Continue  opencode -s ses_044ad0cbdffezVx1aiYFUnE3tg
