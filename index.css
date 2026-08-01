@@ -1,3 +1,20 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #111; overflow: hidden; width: 100vw; height: 100vh; }
-canvas { display: block; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #111;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+canvas {
+  display: flex;
+  justify-content: center;
+  color: aqua;
+  width: 500px;
+  height: 500px;
+}
