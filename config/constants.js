@@ -6,6 +6,7 @@ export const CANVAS = {
 export const FPS = 60;
 
 export const CONTROLS = {
+  // key : value
   ArrowUp: 'moveUp',
   ArrowDown: 'moveDown',
   ArrowLeft: 'moveLeft',
