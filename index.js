@@ -1,5 +1,9 @@
-import { CANVAS, FPS, PALETTE } from './config/constants.js';
+import { CANVAS, FPS, SPEED, TILE } from './config/constants.js';
 import { isDown } from './controllers/input.js';
+import { Map } from './models/map.js';
+import { Player } from './models/player.js';
+import { Camera } from './services/camera.js';
+import { render } from './views/render.js';
 
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -7,35 +11,33 @@ const ctx = canvas.getContext('2d');
 canvas.width = CANVAS.width;
 canvas.height = CANVAS.height;
 
-const SPEED = 3;
-const box = { x: CANVAS.width / 2 - 10, y: CANVAS.height / 2 - 10, size: 20 };
+const map = new Map();
+const player = new Player(map, TILE, TILE);
+const camera = new Camera();
 
-let lastTime = performance.now(); // get the now time first
+let lastTime = performance.now();
 const frameTime = 1000 / FPS;
 
 function loop(time) {
-  const delta = time - lastTime; 
-  // minus the now time (lasttime) to the current now (time)
+  const delta = time - lastTime;
 
-  if (delta >= frameTime) { // mo draw ra if delta ky within the frametime
+  if (delta >= frameTime) {
     lastTime = time;
 
-    ctx.fillStyle = PALETTE.canvas;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    let dx = 0;
+    let dy = 0;
+    if (isDown('moveLeft')) dx -= SPEED;
+    if (isDown('moveRight')) dx += SPEED;
+    if (isDown('moveUp')) dy -= SPEED;
+    if (isDown('moveDown')) dy += SPEED;
 
-    if (isDown('moveLeft')) box.x -= SPEED;
-    if (isDown('moveRight')) box.x += SPEED;
-    if (isDown('moveUp')) box.y -= SPEED;
-    if (isDown('moveDown')) box.y += SPEED;
+    player.move(dx, dy);
+    camera.follow(player);
 
-    ctx.fillStyle = PALETTE.accent;
-    ctx.fillRect(box.x, box.y, box.size, box.size);
+    render(ctx, map, camera, player);
   }
 
   requestAnimationFrame(loop);
 }
 
 requestAnimationFrame(loop);
-
-// THE WHOLE THING LOOP IS TELLING THE BROWSER TO PRINT ONLY IF ITS ACTUALLY
-// PASSED THE FPS, MEANS PER FRAMETIME RA MAGDRAW PRA SAKTO 60DRAWS IN 1S
