@@ -1,0 +1,2 @@
+  Session   Canvas tile mapping and next steps
+  Continue  opencode -s ses_0381c1446ffeRxhi9FyNo67z30
