@@ -15,13 +15,14 @@ const map = new Map();
 const player = new Player(map, TILE, TILE);
 const camera = new Camera();
 
-let lastTime = performance.now();
+let lastTime = performance.now(); // get the now time first
 const frameTime = 1000 / FPS;
 
 function loop(time) {
   const delta = time - lastTime;
+  // minus the now time (lasttime) to the current now (time)
 
-  if (delta >= frameTime) {
+  if (delta >= frameTime) { // mo draw ra if delta ky within the frametime
     lastTime = time;
 
     let dx = 0;
@@ -41,3 +42,6 @@ function loop(time) {
 }
 
 requestAnimationFrame(loop);
+
+// THE WHOLE THING LOOP IS TELLING THE BROWSER TO PRINT ONLY IF ITS ACTUALLY
+// PASSED THE FPS, MEANS PER FRAMETIME RA MAGDRAW PRA SAKTO 60DRAWS IN 1S
