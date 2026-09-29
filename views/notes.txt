@@ -1,0 +1,2 @@
+  Session   Explain views/render.js folder
+  Continue  opencode -s ses_02b61fb3dffe6EXddnB6tgM7fY
